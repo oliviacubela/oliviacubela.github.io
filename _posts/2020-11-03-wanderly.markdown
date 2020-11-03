@@ -1,0 +1,19 @@
+---
+layout: post
+title:      "Wanderly             "
+date:       2020-11-03 19:24:16 +0000
+permalink:  wanderly
+---
+
+
+My Sinatra application is a travel site where users can signup, create an account, and post their travel images with a  description of their trip, or any travel-related content. I relied heavily on ActiveRecord validations, and used Sinatra flash messages to ensure that my application was user-friendly. 
+
+The secure session is set up in my application controller, along with my helper methods that verify the current user and if they are logged in. My users controller is responsible for getting the user either logged in, signed up, or logged out of their session. The session hash is important because the application needs to access the data in the session to validate whether the user is able to perform specific functions in the application. For example, I use the session user_id to determine which user is logged in, and thus which posts they are able to create, edit, or delete. This ensures that another user cannot delete or edit another user’s post. 
+
+The posts controller uses sessions as well, in a similar fashion to the user’s controller. Unlike the user’s controller, however, the posts controller has additional routes and allows the user to edit and delete posts, using a patch and delete route. 
+
+My views use forms and ensure that the proper form will render when sending a request. After the user navigates to the Wanderly site, they are greeted with the welcome page that prompts them to either log in or signup. Once the user selects either option, they are prompted to fill out the respective form. I incorporated Sinatra flash messages to show errors or success messages depending on the user actions, then the respective action will take them to the proper page. Each template renders the page for the user. 
+
+The layout.erb page is significant for this application not just for styling purposes, but also for flash messages. I used in-line css and ruby logic to allow flash messages to show across the application, and I wanted buttons to remain at the top of each page so that the user can easily navigate and create a post, see all posts, or logout. 
+
+The Wanderly application is a fun, travel-related site influenced by past trips with my friends prior to the COVID outbreak, and serves as inspiration for future trips when it’s safe.
